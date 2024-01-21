@@ -1,10 +1,14 @@
 package RestAPI;
 
-import org.testng.Assert;
+import static io.restassured.RestAssured.baseURI;
+import static io.restassured.RestAssured.get;
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
+
+import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
-import static io.restassured.RestAssured.*;
+
 import io.restassured.response.Response;
-import static org.hamcrest.Matchers.*;
 
 public class DemoTests {
 
@@ -12,7 +16,7 @@ public class DemoTests {
 	public void test_1() {
 		Response response = get("https://reqres.in/api/users?page=2");
 		System.out.println(response.getStatusCode());
-		Assert.assertEquals(response.getStatusCode(), 200);
+		AssertJUnit.assertEquals(response.getStatusCode(), 200);
 	}
 	
 	@Test

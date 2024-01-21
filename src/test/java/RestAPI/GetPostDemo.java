@@ -1,8 +1,11 @@
 package RestAPI;
+import static io.restassured.RestAssured.baseURI;
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasItems;
+
 import org.json.simple.JSONObject;
 import org.testng.annotations.Test;
-import static io.restassured.RestAssured.*;
-import static org.hamcrest.Matchers.*;
 
 public class GetPostDemo {
 
@@ -14,7 +17,8 @@ public class GetPostDemo {
 		then().
 			statusCode(200).
 			body("data[5].last_name", equalTo("Howell")).
-			body("data.first_name", hasItems("George","Lindsay"));
+			body("data.first_name", hasItems("George","Lindsay")).
+			log().all();
 	}
 	
 	@SuppressWarnings("unchecked")

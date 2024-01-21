@@ -1,6 +1,9 @@
 package RestAPI;
 
-import static io.restassured.RestAssured.*;
+import static io.restassured.RestAssured.baseURI;
+import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.when;
+
 import org.json.simple.JSONObject;
 import org.testng.annotations.Test;
 
